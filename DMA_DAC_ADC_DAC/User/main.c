@@ -74,7 +74,7 @@ void ADC_InitADC() {
 	//ADC_InitStruct.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T2_TRGO;
 	ADC_InitStruct.ADC_NbrOfConversion = 1;
 	ADC_InitStruct.ADC_ScanConvMode = ENABLE;
-	ADC_InitStruct.ADC_Resolution = TM_ADC1_RESOLUTION;
+	ADC_InitStruct.ADC_Resolution = ADC_Resolution_12b;
 	ADC_Init(ADC1, &ADC_InitStruct);
 	
 	ADC_CommonInitStruct.ADC_DMAAccessMode = ADC_DMAAccessMode_1;
@@ -139,7 +139,7 @@ int main(void) {
 	
 	/* Output predefined square signal with frequency of 10kHz */
 	//TM_DAC_SIGNAL_SetSignal(TM_DAC2, TM_DAC_SIGNAL_Signal_Sawtooth, 10000);
-	TM_DAC_SIGNAL_SetCustomSignal(TM_DAC2, dac_buff, dac_buff_len, 5000);
+	TM_DAC_SIGNAL_SetCustomSignal(TM_DAC2, dac_buff, dac_buff_len, 10000);
 
 	TM_GPIO_Init(GPIOA, GPIO_PIN_1, TM_GPIO_Mode_AN, TM_GPIO_OType_PP, TM_GPIO_PuPd_DOWN, TM_GPIO_Speed_Medium);
 	
